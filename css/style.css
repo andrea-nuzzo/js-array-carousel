@@ -22,15 +22,37 @@
 .imgWithText{
     width: 80vw;
     height: 100%;
-    border: solid 1px red;
+    
 }
 
 .imgSequence{
     width: 20vw;
     height: 100%;
-    border: solid 1px blue;
+    position: relative;
 }
 
+.box{
+    width: 100%;
+    height: calc(100% / 5);
+    border: solid 1px lightgray;
+}
+
+.arrowUp, .arrowDown{
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 50%;
+    background-color: lightgray;
+    padding: 5px 10px 5px 10px;
+}
+
+.arrowUp{
+    top: 10px;
+}
+
+.arrowDown{
+    bottom: 10px;
+}
 
 /* DEBUG */
 
@@ -44,8 +66,14 @@
 
 .debug .imgWithText{
     background-color: lightpink;
+    border: solid 1px red;
 }
 
 .debug .imgSequence{
     background-color: lightblue;
+    border: solid 1px blue;
+}
+.debug .box{
+    background-color: lightgreen;
+    border: solid 1px lightgray;
 }
