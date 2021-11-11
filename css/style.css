@@ -1,0 +1,51 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container{
+    height: 100vh;
+    position: relative;
+}
+
+.slider{
+    width: 70vw;
+    height: 40%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+}
+
+.imgWithText{
+    width: 80vw;
+    height: 100%;
+    border: solid 1px red;
+}
+
+.imgSequence{
+    width: 20vw;
+    height: 100%;
+    border: solid 1px blue;
+}
+
+
+/* DEBUG */
+
+.debug .container{
+    background-color: tomato;
+}
+
+.debug .slider {
+    background-color: yellowgreen;
+}
+
+.debug .imgWithText{
+    background-color: lightpink;
+}
+
+.debug .imgSequence{
+    background-color: lightblue;
+}
