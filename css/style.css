@@ -19,18 +19,25 @@
     display: flex;
 }
 
-.textImg{
+.country{
     width: 80%;
     position: absolute;
     bottom: 10px;
     color: white;
-    border: 1px solid red;
+    padding: 10px;
 }
-.country{
+.nameCountry{
+    display: none;
     text-align: right;
-    padding-right: 10px;
     margin-bottom: 5px;
+    font-size: 20px;
+    font-weight: bold;
+}
 
+.description{
+    display: none;
+    font-size: 12px;
+    text-align: right;
 }
 
 .imgWithText{
@@ -100,7 +107,6 @@
 }
 
 
-/* DEBUG */
 
 
 
