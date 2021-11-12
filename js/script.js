@@ -42,3 +42,11 @@ for(let i = 0 ; i < items.length; i++){
     <img src="${items[i]}" alt="">
     </div>`
 }
+
+// Rendiamo attive le immagini centrali
+
+const centralImg = document.getElementsByClassName('box');
+
+let activeObject = 0;
+
+centralImg[activeObject].classList.add('active')
