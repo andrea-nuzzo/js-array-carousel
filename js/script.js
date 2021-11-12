@@ -28,7 +28,7 @@ const imgSequence = document.querySelector('.imgSequence');
 
 for(let i = 0 ; i < items.length; i++){
     imgSequence.innerHTML += 
-    `<div class="boxList opacity">
+    `<div class="boxList opacityon">
         <img src="${items[i]}" alt="">
     </div>`
 }
@@ -46,32 +46,58 @@ for(let i = 0 ; i < items.length; i++){
 // Rendiamo attive le immagini centrali
 
 const centralImg = document.getElementsByClassName('box');
+const sequencelImg = document.getElementsByClassName('boxList');
 
 let activeObject = 0;
+let opacityObject = 0;
 
 centralImg[activeObject].classList.add('active')
+sequencelImg[opacityObject].classList.remove('opacityon')
 
 const up = document.querySelector('.arrowUp');
 const down = document.querySelector('.arrowDown');
 
 down.addEventListener("click", function(){
-    if(activeObject < centralImg.length - 1){
+    if(activeObject < centralImg.length - 1 && opacityObject < centralImg.length - 1){
+        //Movimento immagini verso il basso
         centralImg[activeObject].classList.remove('active');
         centralImg[++activeObject].classList.add('active')
+
+        //Movimento opacità varso il basso
+        sequencelImg[opacityObject].classList.add('opacityon')
+        sequencelImg[++opacityObject].classList.remove('opacityon')
+
     } else{
+        // Loop immagini verso il basso
         centralImg[activeObject].classList.remove('active');
         activeObject = 0;
         centralImg[activeObject].classList.add('active')
+
+        //Loop opacità verso il basso
+        sequencelImg[opacityObject].classList.add('opacityon')
+        opacityObject = 0;
+        sequencelImg[opacityObject].classList.remove('opacityon')
     }
 });
 
 up.addEventListener("click", function(){
-    if(activeObject <= 0){
+    if(activeObject <= 0 && opacityObject <=0){
+        // Loop immagini verso l'alto
         centralImg[activeObject].classList.remove('active');
         activeObject = centralImg.length - 1;
         centralImg[activeObject].classList.add('active')
+
+        // Loop opacità verso l'alto
+        sequencelImg[opacityObject].classList.add('opacityon')
+        opacityObject = centralImg.length - 1;
+        sequencelImg[opacityObject].classList.remove('opacityon')
     } else{
+        //Movimento immagini verso l'alto
         centralImg[activeObject].classList.remove('active');
         centralImg[--activeObject].classList.add('active')
+
+        //Movimento opacità varso l'alto
+        sequencelImg[opacityObject].classList.add('opacityon')
+        sequencelImg[--opacityObject].classList.remove('opacityon')
     }
 });
