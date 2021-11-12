@@ -50,3 +50,28 @@ const centralImg = document.getElementsByClassName('box');
 let activeObject = 0;
 
 centralImg[activeObject].classList.add('active')
+
+const up = document.querySelector('.arrowUp');
+const down = document.querySelector('.arrowDown');
+
+down.addEventListener("click", function(){
+    if(activeObject < centralImg.length - 1){
+        centralImg[activeObject].classList.remove('active');
+        centralImg[++activeObject].classList.add('active')
+    } else{
+        centralImg[activeObject].classList.remove('active');
+        activeObject = 0;
+        centralImg[activeObject].classList.add('active')
+    }
+});
+
+up.addEventListener("click", function(){
+    if(activeObject <= 0){
+        centralImg[activeObject].classList.remove('active');
+        activeObject = centralImg.length - 1;
+        centralImg[activeObject].classList.add('active')
+    } else{
+        centralImg[activeObject].classList.remove('active');
+        centralImg[--activeObject].classList.add('active')
+    }
+});
