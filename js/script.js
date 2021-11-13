@@ -48,100 +48,82 @@ for(let i = 0; i < items.length; i++){
 
 
 // Rendiamo attive le immagini centrali
-
 const centralImg = document.getElementsByClassName('box');
 const sequencelImg = document.getElementsByClassName('boxList');
 const titleCountry = document.getElementsByClassName('nameCountry');
 const textCountry = document.getElementsByClassName('description');
 
 let activeObject = 0;
-let activeOpacity = 0;
-let activeTitle = 0;
-let activeText = 0;
 
 centralImg[activeObject].classList.add('active');
-sequencelImg[activeOpacity].classList.remove('opacityon');
-titleCountry[activeTitle].classList.add('active');
-textCountry[activeText].classList.add('active');
+sequencelImg[activeObject].classList.remove('opacityon');
+titleCountry[activeObject].classList.add('active');
+textCountry[activeObject].classList.add('active');
 
 
 const up = document.querySelector('.arrowUp');
 const down = document.querySelector('.arrowDown');
 
+
+//Click verso il basso
 down.addEventListener("click", function(){
-    if(activeObject < centralImg.length - 1 && activeOpacity < centralImg.length - 1){
-        //Movimento immagini verso il basso
-        centralImg[activeObject].classList.remove('active');
-        centralImg[++activeObject].classList.add('active');
+    if(activeObject < centralImg.length - 1){
+         centralImg[activeObject].classList.remove('active');
+         titleCountry[activeObject].classList.remove('active');
+         textCountry[activeObject].classList.remove('active');
+         sequencelImg[activeObject].classList.add('opacityon');
+         
+         activeObject++;
 
-        // Movimento titolo e testo verso il basso
-        titleCountry[activeTitle].classList.remove('active');
-        titleCountry[++activeTitle].classList.add('active');
-
-        textCountry[activeText].classList.remove('active');
-        textCountry[++activeText].classList.add('active');
-
-        //Movimento opacità varso il basso
-        sequencelImg[activeOpacity].classList.add('opacityon');
-        sequencelImg[++activeOpacity].classList.remove('opacityon');
-
+         centralImg[activeObject].classList.add('active');
+         titleCountry[activeObject].classList.add('active');
+         textCountry[activeObject].classList.add('active');
+         sequencelImg[activeObject].classList.remove('opacityon');
+         
     } else{
-        // Loop immagini verso il basso
-        centralImg[activeObject].classList.remove('active');
-        activeObject = 0;
-        centralImg[activeObject].classList.add('active');
-
-        // Loop titolo e testo verso il basso
-        titleCountry[activeTitle].classList.remove('active');
-        activeTitle = 0;
-        titleCountry[activeTitle].classList.add('active');
         
-        textCountry[activeText].classList.remove('active');
-        activeText = 0;
-        textCountry[activeText].classList.add('active');
+        centralImg[activeObject].classList.remove('active');
+        titleCountry[activeObject].classList.remove('active');
+        textCountry[activeObject].classList.remove('active');
+        sequencelImg[activeObject].classList.add('opacityon');
 
-        //Loop opacità verso il basso
-        sequencelImg[activeOpacity].classList.add('opacityon');
-        activeOpacity = 0;
-        sequencelImg[activeOpacity].classList.remove('opacityon');
+        
+        activeObject = 0;
+
+        centralImg[activeObject].classList.add('active');
+        titleCountry[activeObject].classList.add('active');
+        textCountry[activeObject].classList.add('active');
+        sequencelImg[activeObject].classList.remove('opacityon');
     }
 });
 
+// Click verso l'alto
 up.addEventListener("click", function(){
-    if(activeObject <= 0 && activeOpacity <=0){
-        // Loop immagini verso l'alto
+    if(activeObject <= 0){
+        
         centralImg[activeObject].classList.remove('active');
+        titleCountry[activeObject].classList.remove('active');
+        textCountry[activeObject].classList.remove('active');
+        sequencelImg[activeObject].classList.add('opacityon');
+
         activeObject = centralImg.length - 1;
+
         centralImg[activeObject].classList.add('active');
+        titleCountry[activeObject].classList.add('active');
+        textCountry[activeObject].classList.add('active');
+        sequencelImg[activeObject].classList.remove('opacityon');
 
-        // Loop titolo e testo verso l'alto
-        titleCountry[activeTitle].classList.remove('active');
-        activeTitle = centralImg.length - 1;
-        titleCountry[activeTitle].classList.add('active');
-        
-        textCountry[activeText].classList.remove('active');
-        activeText = centralImg.length - 1;
-        textCountry[activeText].classList.add('active');
-
-        // Loop opacità verso l'alto
-        sequencelImg[activeOpacity].classList.add('opacityon');
-        activeOpacity = centralImg.length - 1;
-        sequencelImg[activeOpacity].classList.remove('opacityon');
     } else{
-        //Movimento immagini verso l'alto
         centralImg[activeObject].classList.remove('active');
-        centralImg[--activeObject].classList.add('active');
+        titleCountry[activeObject].classList.remove('active');
+        textCountry[activeObject].classList.remove('active');
+        sequencelImg[activeObject].classList.add('opacityon');
 
-        // Movimento titolo e testo verso l'alto
-        titleCountry[activeTitle].classList.remove('active');
-        titleCountry[--activeTitle].classList.add('active');
-        
-        textCountry[activeText].classList.remove('active');
-        textCountry[--activeText].classList.add('active');
+        activeObject--;
 
-
-        //Movimento opacità varso l'alto
-        sequencelImg[activeOpacity].classList.add('opacityon');
-        sequencelImg[--activeOpacity].classList.remove('opacityon')
+        centralImg[activeObject].classList.add('active');
+        titleCountry[activeObject].classList.add('active');
+        textCountry[activeObject].classList.add('active');
+        sequencelImg[activeObject].classList.remove('opacityon')
     }
 });
